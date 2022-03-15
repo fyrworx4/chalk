@@ -1,8 +1,10 @@
 ---
 layout: post
 title: 	"The Weakest Link"
+description: "A story of growth and maturity."
 tags: [professional-development]
 ---
+
 ## The CBA Peer Mentor Program
 
 The **CBA Peer Mentor** program was started in Spring 2021 to enable freshmen in the College of Business Administration to connect and bond with each other. Being a CBA Peer Mentor was a paid position, and seeing how I enjoyed sharing my stories and motivating others, I felt like this position was right up my alley.

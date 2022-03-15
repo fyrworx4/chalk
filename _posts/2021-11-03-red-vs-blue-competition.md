@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 	"Red vs. Blue"
+description: "The begnning of a new era for SWIFT."
 tags: [cybersecurity, swift]
 ---
 Red vs. Blue is an adversarial simulation competition to provide students with a unique, hands-on experience of defending Linux and Windows machines from an active threat actor. It's modeled after the CCDC competition to allow students to get the feel and rigor of a cyber competition, integrated with business objectives.
