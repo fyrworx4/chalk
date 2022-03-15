@@ -2,7 +2,7 @@
 layout: post
 title: "First Place in ITC 2020"
 description: "First experience with digital forensics."
-tags: [cybersecurity]
+tags: [cybersecurity, dfir, competitions]
 ---
 Ever heard of the saying “the show must go on?”
 
