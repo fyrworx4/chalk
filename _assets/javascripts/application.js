@@ -8,7 +8,7 @@ $(document).ready(function() {
 
   // Zooming
   new Zooming(
-    {customSize: '100%', scaleBase: 0.9, scaleExtra: 0}
+    {customSize: '100%', scaleBase: 0.9, scaleExtra: 0, bgColor: 'rgb(18, 17, 17)'}
   ).listen('.zooming');
 
   // Share buttons
