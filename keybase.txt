@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/sergitnsr
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://dekimu.com
+  * I am sergitnsr (https://keybase.io/sergitnsr) on keybase.
+  * I have a public key ASB3YjTpvdfv4R2Da7g3JoVQV8XesOu_ASZThvLfbjbvSQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120776234e9bdd7efe11d836bb83726855057c5deb0ebbf01265386f2df6e36ef490a",
+      "host": "keybase.io",
+      "kid": "0120776234e9bdd7efe11d836bb83726855057c5deb0ebbf01265386f2df6e36ef490a",
+      "uid": "7c0f461c1298892fb107635a11e69319",
+      "username": "sergitnsr"
+    },
+    "merkle_root": {
+      "ctime": 1648635641,
+      "hash": "e8fe46dad7c2f4ab960ce3d657a2397fce7fecf9bb23d2f8f5d19eaa2232a789ca0662ccd359dc9315d62495fe2b0ec4f0b93f499be6140b1b8e06f3dfcaf2b3",
+      "hash_meta": "3eb6360956f4ba6477a63ba40453d82a55af08994a1e7a709186f1d11888b604",
+      "seqno": 22189427
+    },
+    "service": {
+      "entropy": "gjuXonx8EAlLtbEYeNBOq9l7",
+      "hostname": "dekimu.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.9.3"
+  },
+  "ctime": 1648635665,
+  "expire_in": 504576000,
+  "prev": "8ab02bc8afd292e4807503f89a29391d1b37e2a5deb38cb48033ccbfb27d374f",
+  "seqno": 13,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgd2I06b3X7+Edg2u4NyaFUFfF3rDrvwEmU4by324270kKp3BheWxvYWTESpcCDcQgirAryK/SkuSAdQP4mik5HRs34qXes4y0gDPMv7J9N0/EIMTITIwqJpLhy8EocxJmNPCqnPxLcUL9j9+744bm32PyAgHCo3NpZ8RA+4wrRdVHzCBu/uJPEpADdMLL/oV3XSBDwcxvONSIrlO5U5NIYi4TPg8lFcqocdGYEtA2Xb1SjT1FNdRtbAvWB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIHY1QJRW7e+QLf8fHF0cxOffQJ0OQdjk24PPwNH/n5J5o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/sergitnsr
+
+==================================================================
