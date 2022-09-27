@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 	"Red vs. Blue - Networking"
-description: "The secrets of RvB networking uncovered"
+description: "The final boss of RvB"
 tags: [swift, networking]
 ---
 
