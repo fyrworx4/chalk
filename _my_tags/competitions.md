@@ -1,4 +1,0 @@
----
-slug: competitions
-name: Competitions
----

@@ -1,4 +1,0 @@
----
-slug: dfir
-name: DFIR
----

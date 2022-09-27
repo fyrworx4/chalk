@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>tsnguyen | Red vs. Blue - Networking</title>
+  <meta name="description" content="The final boss of RvB">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="google-site-verification" content="rrfms53zaykhCVWMuR5mkjCjwprrP-O-oDsOCAn8H6c" />
+
+  <meta property="og:title" content="Red vs. Blue - Networking">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tsnguyen.com/posts/2022-rvb-networking">
+  <meta property="og:description" content="The final boss of RvB">
+  <meta property="og:site_name" content="tsnguyen">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://tsnguyen.com/posts/2022-rvb-networking">
+  <meta name="twitter:title" content="Red vs. Blue - Networking">
+  <meta name="twitter:description" content="The final boss of RvB">
+
+  
+    <meta property="og:image" content="https://tsnguyen.com/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
+    <meta name="twitter:image" content="https://tsnguyen.com/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
+  
+
+  <link href="https://tsnguyen.com/feed.xml" type="application/rss+xml" rel="alternate" title="tsnguyen Last 10 blog posts" />
+
+  
+
+  
+
+    
+      <link rel="icon" type="image/x-icon" href="/assets/favicon-dark-e48dce304613b6e84d9116c5ab40660fc6dc1c7821e2364a6f9092739918cfe6.ico">
+      <link rel="apple-touch-icon" href="/assets/apple-touch-icon-dark-d161409442b7e523089f24d08d0a55951549ece7504207c376d53b020713494d.png">
+      <link rel="stylesheet" type="text/css" href="/assets/dark-831218bc9e41aef39ee6a0bae4501195bccafcc13101ae2b9cd20493a6ec04c0.css">
+    
+
+  
+
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/" class="header-logo" title="tsnguyen">tsnguyen</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/fyrworx4" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</nav>
+
+
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>Red vs. Blue - Networking</h1>
+            <p>The final boss of RvB</p>
+            <div class="article-list-footer">
+  <span class="article-list-date">
+    September 27, 2022
+  </span>
+  <span class="article-list-divider">-</span>
+  <span class="article-list-minutes">
+    
+    
+      6 minute read
+    
+  </span>
+  <span class="article-list-divider">-</span>
+  <div class="article-list-tags">
+    
+      
+      <a href="/tag/swift" title="See all posts with tag 'SWIFT'">SWIFT</a>
+    
+      
+      <a href="/tag/networking" title="See all posts with tag 'Networking'">Networking</a>
+    
+  </div>
+</div>
+          </header>
+
+          <div class="article-content">
+            <h1 id="what-is-rvb">What is RvB?</h1>
+<p>Red vs. Blue (RvB) is a SWIFT-run competition that is is modeled after CCDC. A team of 4 students is placed into a vulnerable network that they have to protect. SWIFT board, alumni, and volunteers act as an active red team, trying to compromise the network and lay out persistence on as many machines as possible. This gives students a unique experience of troubleshooting and incident response in an active breach scenario.</p>
+
+<p>Preparation and development of an RvB-style competition involves few major steps: brainstorming the setting, creating vulnerable machines, configuring the networking, and setting up a scoring engine.</p>
+
+<p>To read more about RvB, check out this blog by <a href="https://www.calpolyswift.org/blog/rvb-2022-spring">CPP SWIFT</a>.</p>
+
+<h1 id="goals-of-this-post">Goals of this post</h1>
+<p>This is not really meant to provide a techincal guidance or step-by-step on how to configure networking for an RvB-style setup. I will explain some techincal terms here and there, but this is mainly to show how the networking for RvB has changed over the years, discuss about the thought process behind each iteration, and provide additional insights to help the reader better understand the inner mechanisms of RvB networking.</p>
+
+<h1 id="the-previous-rvb-networking-configuration">The previous RvB networking configuration</h1>
+
+<p><a href="/assets/blog/rvbnetworking/RvB-Topology-previous.drawio-63e09f15c990287e133a4c84ac1d899b009b5e23fa6b213163dc15c9818e49f6.png">
+  <img src="/assets/blog/rvbnetworking/RvB-Topology-previous.drawio-63e09f15c990287e133a4c84ac1d899b009b5e23fa6b213163dc15c9818e49f6.png" alt="" class="zooming" data-rjs="/assets/blog/rvbnetworking/RvB-Topology-previous.drawio-63e09f15c990287e133a4c84ac1d899b009b5e23fa6b213163dc15c9818e49f6.png" data-zooming-width="696" data-zooming-height="817" />
+</a></p>
+
+<p>This was how RvB was previously setup. After the previous networking guy left, this was basically what I was left with in terms of documentation.</p>
+
+<h1 id="primer-to-esxi-networking-terminology">Primer to ESXi networking terminology</h1>
+<p>We run RvB mostly off ESXi, which is a Type-1 hypervisor by VMware. ESXi has the ability to create virtual switches, or vSwitches. vSwitches operate pretty much exactly the same as physical switches.</p>
+
+<p>vSwitches contain port groups. I like to think of port groups as “labels” for the virtual ports on the vSwitch.</p>
+
+<p>If you create two port groups on a single vSwitch and connect VMs to both of those port groups, it would operate the same as connecting computers to different physical switchports on a single physical switch.</p>
+
+<p>You can also configure VLANs and other networking metrics on individual port groups. I will touch more on this topic later in this blog post.</p>
+
+<p>(Not to be mistakened with switching features like LACP or port bonding)</p>
+
+<h1 id="1-to-1-nat">1-to-1 NAT</h1>
+<p>The first thing I focused on was reimplementing the 1-to-1 NAT between the pod networks and the core networks. Every system on each pod needed to be individually accessible from the core network (AKA have its own IP address in the core network subnet range).</p>
+
+<p>After much trial and error, this was the NAT configuration that allowed us to achieve 1-to-1 NAT:</p>
+<ul>
+  <li>Under System → Routing, ensure that the default gateway is configured to be the Core Router’s LAN interface (172.16.0.1).</li>
+  <li>Under Firewall → Virtual IPs, create a new entry with the following settings:
+    <ul>
+      <li>Type - Proxy ARP</li>
+      <li>Interface - WAN</li>
+      <li>Address Type - Network</li>
+      <li>Address(es) - 172.16.X.0/24 (X being the team number)</li>
+    </ul>
+  </li>
+  <li>Under Firewall → NAT, create a new 1:1 mapping:
+    <ul>
+      <li>Interface - WAN</li>
+      <li>Address Family - IPv4</li>
+      <li>External subnet IP → WAN address</li>
+      <li>Internal IP → LAN Net</li>
+      <li>Destination - Any</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="vlans">VLANs</h1>
+<p>VLANs, or virtual LANs, is a feature of switches that allow you to logically separate broadcast domains on a single switch.</p>
+
+<p>Simply put, with a standard switch without VLANs, you can only attach one network onto that switch. If you want to have two networks, you would need two switches.</p>
+
+<p><a href="/assets/blog/rvbnetworking/RvB-Topology-no-vlan.drawio-a263ece3b514254e60c3ccf5183660f02e814aaf0e5f5d23f1e9bc6ede25409a.png">
+  <img src="/assets/blog/rvbnetworking/RvB-Topology-no-vlan.drawio-a263ece3b514254e60c3ccf5183660f02e814aaf0e5f5d23f1e9bc6ede25409a.png" alt="" class="zooming" data-rjs="/assets/blog/rvbnetworking/RvB-Topology-no-vlan.drawio-a263ece3b514254e60c3ccf5183660f02e814aaf0e5f5d23f1e9bc6ede25409a.png" data-zooming-width="338" data-zooming-height="238" />
+</a></p>
+
+<p>With VLANs, you can attach multiple networks on a single switch.</p>
+
+<p><a href="/assets/blog/rvbnetworking/RvB-Topology-vlan.drawio-90c609e6f9e221272c37189e76ab02fe282c5b03b3deb5a5fa433d6bdfa0e4da.png">
+  <img src="/assets/blog/rvbnetworking/RvB-Topology-vlan.drawio-90c609e6f9e221272c37189e76ab02fe282c5b03b3deb5a5fa433d6bdfa0e4da.png" alt="" class="zooming" data-rjs="/assets/blog/rvbnetworking/RvB-Topology-vlan.drawio-90c609e6f9e221272c37189e76ab02fe282c5b03b3deb5a5fa433d6bdfa0e4da.png" data-zooming-width="338" data-zooming-height="238" />
+</a></p>
+
+<p>In this example, notice how we reduced the number of switches when we implemented VLANs. If I create new VLANs, I can add many more networks onto that one single switch! That’s one of the benefits of VLANs - less infrastructure overhead when creating new networks.</p>
+
+<p>Now with VLANs in mind, let’s go back to RvB networking.</p>
+
+<p>One of the issues with the current setup of RvB is having too many vSwitches – each pod would require its own vSwitch, which is kind of unnecessary since I would have to create an entirely new vSwitch with a new port group for each team. Our lab eventually became a mess of vSwitches and port groups, I wanted to reduce creating new vSwitches whenever possible. So I configured each RvB pod’s port group to belong in a different VLAN. These VLANs only existed within the port groups - the VLANs were not configured on any physical switch or router. This would make it so that each pod is isolated into their own separate broadcast domain, but still be connected to one vSwitch. Therefore, we can still create pod networks without having to create additional vSwitches.</p>
+
+<p><a href="/assets/blog/rvbnetworking/RvB-Topology-topo-vlan.drawio-00c0e83a2f3a50ba9885ec5885a9b44cc72c6132c80d3738778303a184ee694e.png">
+  <img src="/assets/blog/rvbnetworking/RvB-Topology-topo-vlan.drawio-00c0e83a2f3a50ba9885ec5885a9b44cc72c6132c80d3738778303a184ee694e.png" alt="" class="zooming" data-rjs="/assets/blog/rvbnetworking/RvB-Topology-topo-vlan.drawio-00c0e83a2f3a50ba9885ec5885a9b44cc72c6132c80d3738778303a184ee694e.png" data-zooming-width="668" data-zooming-height="470" />
+</a></p>
+
+<h1 id="infrastructure-upgrades">Infrastructure Upgrades</h1>
+<p>We also had an upgrade to our lab - instead of having individuals ESXi machines, we created an ESXi cluster with vMotion and iSCSI configured to allow for load balancing and other cool VM stuff. However, instead of using vSwitches, we had to use distributed switches, or dSwitches for short. vSwitches and dSwitches do pretty much the same thing, except vSwitches are unique per ESXi, while dSwitches exist for all ESXi’s in a cluster.</p>
+
+<p>I like to draw dSwitches as a very wide switch.</p>
+
+<p><a href="/assets/blog/rvbnetworking/RvB-Topology-dswitch.drawio-54a7162b67458bccee7ea89bbd7070c104e670c350171ddd05f02204cbe0656b.png">
+  <img src="/assets/blog/rvbnetworking/RvB-Topology-dswitch.drawio-54a7162b67458bccee7ea89bbd7070c104e670c350171ddd05f02204cbe0656b.png" alt="" class="zooming" data-rjs="/assets/blog/rvbnetworking/RvB-Topology-dswitch.drawio-54a7162b67458bccee7ea89bbd7070c104e670c350171ddd05f02204cbe0656b.png" data-zooming-width="821" data-zooming-height="342" />
+</a></p>
+
+<p>When we configured dSwitches initially, we were prompted for many other options, like uplinks, which I wasn’t really familiar with so I just skipped those steps. After creating our dSwitch and our port groups with unique VLAN IDs, we ran into another issue. The issue was that machines on different ESXi’s weren’t able to communicate with each other. After much troubleshooting, I figured out that the issue was because the dSwitches weren’t configured with uplinks. Uplinks allowed the dSwitch to operate across multiple ESXis. Without the uplink, the dSwitch would still exist across the ESXis (you can still add port groups and connect VMs to those port groups) but each ESXi would treat the dSwitch as their own local vSwitch. This means that VMs on the same ESXi on the same dSwitch can communicate with each other, but VMs on different ESXis but on the same dSwitch can’t communicate with each other.</p>
+
+<p>The way that I was able to solve this issue was to create the uplinks. But how? This was how:</p>
+
+<p>In my setup, the uplinks were attached to each ESXi’s vmnic0, which was configured as a trunk port. Each of the vmnic0’s were connected to switchports on some HP switch that were configured as trunk VLANs with VLANs 1000-2000 being allowed through the ports. These VLANs only existed on the switch level; no routers contained any configurations for VLANs 1000-2000.</p>
+
+<p>This would allow a user to create a port group with a unique VLAN ID, and be able to have VMs on that port group communicate with each other regardless of which ESXi the VM belonged on. Things like creating VMs, vMotion, and load balancing cause VMs to be automatically placed and migrated in different ESXi’s, making this configuration an ideal way to abstract networking on the individual ESXi level.</p>
+
+<p><a href="/assets/blog/rvbnetworking/RvB-Topology-topo-infra.drawio-749d7f30f5338f0570a0937fb998823e3bf0ae0a7b4ec29c2a5ab1e9ba84b834.png">
+  <img src="/assets/blog/rvbnetworking/RvB-Topology-topo-infra.drawio-749d7f30f5338f0570a0937fb998823e3bf0ae0a7b4ec29c2a5ab1e9ba84b834.png" alt="" class="zooming" data-rjs="/assets/blog/rvbnetworking/RvB-Topology-topo-infra.drawio-749d7f30f5338f0570a0937fb998823e3bf0ae0a7b4ec29c2a5ab1e9ba84b834.png" data-zooming-width="1041" data-zooming-height="842" />
+</a></p>
+
+<h1 id="replacing-the-core-router">Replacing the Core Router</h1>
+<p>After reviewing the topology, I noticed that having a separate pfSense VM as a core router is repetitive. The core router’s purpose was to create a 172.16.0.0/16 network. We can just make a new VLAN on the physical router with the 172.16.0.0/16 network and have that VLAN also be routed through the ESXis.</p>
+
+<p>Also, the red team machines and the scoring engine are now placed on the 172.16.0.0/16 network. There’s really no reason to have a separate red team subnet. The less networks, the better.</p>
+
+<h1 id="final-topology">Final Topology</h1>
+
+<p><a href="/assets/blog/rvbnetworking/RvB-Topology-topo-final.drawio-c8567a59c4ca0ff5b55c2ad62b8a83b787e22d19c2bb64cb08b2ab7d7ad6e5f3.png">
+  <img src="/assets/blog/rvbnetworking/RvB-Topology-topo-final.drawio-c8567a59c4ca0ff5b55c2ad62b8a83b787e22d19c2bb64cb08b2ab7d7ad6e5f3.png" alt="" class="zooming" data-rjs="/assets/blog/rvbnetworking/RvB-Topology-topo-final.drawio-c8567a59c4ca0ff5b55c2ad62b8a83b787e22d19c2bb64cb08b2ab7d7ad6e5f3.png" data-zooming-width="1041" data-zooming-height="841" />
+</a></p>
+
+<h1 id="final-thoughts">Final Thoughts</h1>
+<p>When viewing the previous RvB setup, the networking was a lot more simpler and easy to understand. VLANs made sense as well. However, when vSphere clustering and dSwitches became involved, traditional networking convention was thrown out the window. Having to understand the function of dSwitch uplinks, implemeting VLANs into vmnics and dSwitches, and how to figure out how to bridge the connection between VMware networking and physical networking was the biggest hurdle for me.</p>
+
+          </div>
+          <!--<div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=Red+vs.+Blue+-+Networking%20-%20https://tsnguyen.com/posts/2022-rvb-networking" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://tsnguyen.com/posts/2022-rvb-networking" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+          </div>
+          -->
+
+          <!-- 
+          -->
+        </article>
+        <footer class="footer scrollappear">
+  <p>
+    Chalk is a high quality, completely customizable, performant and 100% free
+    blog template for Jekyll built by
+    <a href="https://twitter.com/nielsenramon?lang=en">Nielsen Ramon</a>. Download it <a href="https://github.com/nielsenramon/chalk" rel="noreferrer noopener" target="_blank" title="Download Chalk">here</a>.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WT5ZHBZ833"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WT5ZHBZ833');
+  </script>
+
+
+<script src="/assets/vendor-1a8f6e33220f845e569c20b3c09a5d43f87908ea7168ea139ce2135770f7b1b5.js" type="text/javascript"></script>
+
+
+  <script src="/assets/webfonts-96493456d319d1bf419afdf8701552d4d486fee6afd304897d4fd81eb4e0cc0b.js" type="text/javascript"></script>
+
+
+
+  <script src="/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/assets/application-0e69434a66df865cc92b123bd71881f3ec72580523be137646272242afd78a61.js" type="text/javascript"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>tsnguyen | The Time I Took Down My College Network</title>
+  <meta name="description" content="Not a very fun time.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="google-site-verification" content="rrfms53zaykhCVWMuR5mkjCjwprrP-O-oDsOCAn8H6c" />
+
+  <meta property="og:title" content="The Time I Took Down My College Network">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tsnguyen.com/posts/time-i-took-down-networking">
+  <meta property="og:description" content="Not a very fun time.">
+  <meta property="og:site_name" content="tsnguyen">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://tsnguyen.com/posts/time-i-took-down-networking">
+  <meta name="twitter:title" content="The Time I Took Down My College Network">
+  <meta name="twitter:description" content="Not a very fun time.">
+
+  
+    <meta property="og:image" content="https://tsnguyen.com/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
+    <meta name="twitter:image" content="https://tsnguyen.com/assets/og-image-ee46bbc61b334e821e81534b1fd43f3fee6f020ec174b3c2114445695fd48c01.jpg">
+  
+
+  <link href="https://tsnguyen.com/feed.xml" type="application/rss+xml" rel="alternate" title="tsnguyen Last 10 blog posts" />
+
+  
+
+  
+
+    
+      <link rel="icon" type="image/x-icon" href="/assets/favicon-dark-e48dce304613b6e84d9116c5ab40660fc6dc1c7821e2364a6f9092739918cfe6.ico">
+      <link rel="apple-touch-icon" href="/assets/apple-touch-icon-dark-d161409442b7e523089f24d08d0a55951549ece7504207c376d53b020713494d.png">
+      <link rel="stylesheet" type="text/css" href="/assets/dark-831218bc9e41aef39ee6a0bae4501195bccafcc13101ae2b9cd20493a6ec04c0.css">
+    
+
+  
+
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/" class="header-logo" title="tsnguyen">tsnguyen</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/fyrworx4" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</nav>
+
+
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>The Time I Took Down My College Network</h1>
+            <p>Not a very fun time.</p>
+            <div class="article-list-footer">
+  <span class="article-list-date">
+    January 21, 2021
+  </span>
+  <span class="article-list-divider">-</span>
+  <span class="article-list-minutes">
+    
+    
+      2 minute read
+    
+  </span>
+  <span class="article-list-divider">-</span>
+  <div class="article-list-tags">
+    
+      
+      <a href="/tag/networking" title="See all posts with tag 'Networking'">Networking</a>
+    
+  </div>
+</div>
+          </header>
+
+          <div class="article-content">
+            <p>I’ve done computer networking for a while now. In fact, in my CCDC team, I opted to be the networking lead and became the de-facto person in my cybersecurity organization to talk about computer networking.</p>
+
+<p>It’s more of a love-hate relationship. Networking is super interesting to me, but even a few small changes can bring down an entire network. And I hate networking because of that.</p>
+
+<p>And I’m notorious for bringing down networks. It’s how my role in CCDC became nicknamed the “not-working” team. There would be many times where I accidently applied an ACL (access control list) that would block a scoring service from reaching outside the network, bringing us down for a few hours until someone realizes that it’s a networking problem.</p>
+
+<p>Despite that, I’m still the go-to person for any networking needs.</p>
+
+<h1 id="the-student-data-center">The Student Data Center</h1>
+
+<p>This past summer, I had the opportunity to redo some of the networking infrastructure for my school, specifically the Student Data Center (SDC for short) designed for cybersecurity labs, class demonstrations, etc.</p>
+
+<p>I assisted with planning out and pushing for a networking configuration that would give us the most bandwidth, while at the same time, have redundancy all over the place. Redundant links, switches, and more.</p>
+
+<p>The problem was that there wasn’t enough documentation for me to understand how the networking was setup before, so there was no way of telling if there were devices that were owned by the school, or owned by the Student Data Center.</p>
+
+<h1 id="password-reset">Password Reset</h1>
+
+<p>One day, I discovered two Cisco switches that connected the lab to the Internet, and I wanted to see the configuration of those switches. Problem was, I didn’t know the passwords to them. There wasn’t any documentation on any of the switches, so <em>wouldn’t it be a great idea to flex my Cisco knowledge and do a password reset on the switches?</em></p>
+
+<p>It wasn’t a great idea.</p>
+
+<p>For some reason, after my first password reset, the commands of the previous configuration were all being automatically inputted into the switch, and some of them were generating errors. I had no idea what was going on, so I just continued on and saw if I could do a <code class="highlighter-rouge">show run</code> on the switch.</p>
+
+<p>And it seemed that the previous configurations were totally wiped out from the switch.</p>
+
+<p>Meaning that I took down our connection to the Internet.</p>
+
+<p>To make matters even worse, the Cisco switches were school property, meaning that what I did was <em>technically</em> unauthorized.</p>
+
+<p>I probably should have asked which devices were in scope for this project, but at the same time, I’m glad that I did it in a lab environment, where there is a lot more room for failure than something like a business.</p>
+
+<p>Lesson learned - always ask before doing something.</p>
+
+<h1 id="update---3142022">Update - 3/14/2022</h1>
+
+<p>Happy Pi day! We’re finally able to get back into the SDC after about a year. Time to undo my wrongdoings…</p>
+
+          </div>
+          <!--<div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=The+Time+I+Took+Down+My+College+Network%20-%20https://tsnguyen.com/posts/time-i-took-down-networking" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://tsnguyen.com/posts/time-i-took-down-networking" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+          </div>
+          -->
+
+          <!-- 
+          -->
+        </article>
+        <footer class="footer scrollappear">
+  <p>
+    Chalk is a high quality, completely customizable, performant and 100% free
+    blog template for Jekyll built by
+    <a href="https://twitter.com/nielsenramon?lang=en">Nielsen Ramon</a>. Download it <a href="https://github.com/nielsenramon/chalk" rel="noreferrer noopener" target="_blank" title="Download Chalk">here</a>.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WT5ZHBZ833"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WT5ZHBZ833');
+  </script>
+
+
+<script src="/assets/vendor-1a8f6e33220f845e569c20b3c09a5d43f87908ea7168ea139ce2135770f7b1b5.js" type="text/javascript"></script>
+
+
+  <script src="/assets/webfonts-96493456d319d1bf419afdf8701552d4d486fee6afd304897d4fd81eb4e0cc0b.js" type="text/javascript"></script>
+
+
+
+  <script src="/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/assets/application-0e69434a66df865cc92b123bd71881f3ec72580523be137646272242afd78a61.js" type="text/javascript"></script>
+
+
+</body>
+</html>

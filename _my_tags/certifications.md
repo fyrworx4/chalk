@@ -1,4 +1,0 @@
----
-slug: certifications
-name: Certifications
----
