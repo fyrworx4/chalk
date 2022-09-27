@@ -71,6 +71,10 @@ One of the issues with the current setup of RvB is having too many vSwitches –
 # Infrastructure Upgrades
 We also had an upgrade to our lab - instead of having individuals ESXi machines, we created an ESXi cluster with vMotion and iSCSI configured to allow for load balancing and other cool VM stuff. However, instead of using vSwitches, we had to use distributed switches, or dSwitches for short. vSwitches and dSwitches do pretty much the same thing, except vSwitches are unique per ESXi, while dSwitches exist for all ESXi's in a cluster.
 
+I like to draw dSwitches as a very wide switch.
+
+{% include image.html path="blog/rvbnetworking/RvB-Topology-dswitch.drawio.png" path-detail="blog/rvbnetworking/RvB-Topology-dswitch.drawio.png" alt="" %}
+
 When we configured dSwitches initially, we were prompted for many other options, like uplinks, which I wasn't really familiar with so I just skipped those steps. After creating our dSwitch and our port groups with unique VLAN IDs, we ran into another issue. The issue was that machines on different ESXi's weren't able to communicate with each other. After much troubleshooting, I figured out that the issue was because the dSwitches weren't configured with uplinks. Uplinks allowed the dSwitch to operate across multiple ESXis. Without the uplink, the dSwitch would still exist across the ESXis (you can still add port groups and connect VMs to those port groups) but each ESXi would treat the dSwitch as their own local vSwitch. This means that VMs on the same ESXi on the same dSwitch can communicate with each other, but VMs on different ESXis but on the same dSwitch can't communicate with each other.
 
 The way that I was able to solve this issue was to create the uplinks. But how? This was how:
